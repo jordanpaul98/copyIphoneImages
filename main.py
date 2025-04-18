@@ -5,10 +5,14 @@ from PIL.ExifTags import TAGS
 import os
 import shutil
 
+# ////////////////////////////////////
 #Directory that contains the images
+# ////////////////////////////////////
 dir_from = ''
 
+# ////////////////////////////////////
 #Directory to copy images to
+# ////////////////////////////////////
 dir_to = ''
 
 if dir_from == '' or dir_to == '':
@@ -30,7 +34,9 @@ def getCameraModel(image_path):
 
     return None
 
-
+# //////////////////////////////////////////////////
+# Local image to test and find what iPhone model is
+# //////////////////////////////////////////////////
 local_image_to_test_name = ""
 
 if local_image_to_test_name == "":
