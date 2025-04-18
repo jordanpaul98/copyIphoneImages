@@ -42,11 +42,6 @@ if local_image_to_test_name == "":
     print("Please add local image to test")
     exit(0)
 
-# //////////////////////////////////////////////////
-# Remember to remvoe
-# //////////////////////////////////////////////////
-exit(0)
-
 print(f"Moving File linked to camera Model: {getCameraModel(local_image_to_test_name)
     if local_image_to_test_name else "NA"}")
 
