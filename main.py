@@ -17,7 +17,6 @@ dir_to = ''
 
 if dir_from == '' or dir_to == '':
     print("Please add the to and from directories")
-    exit(0)
 
 # iPhone Model to move
 iphone_model = ""
@@ -42,6 +41,11 @@ local_image_to_test_name = ""
 if local_image_to_test_name == "":
     print("Please add local image to test")
     exit(0)
+
+# //////////////////////////////////////////////////
+# Remember to remvoe
+# //////////////////////////////////////////////////
+exit(0)
 
 print(f"Moving File linked to camera Model: {getCameraModel(local_image_to_test_name)
     if local_image_to_test_name else "NA"}")
