@@ -31,41 +31,44 @@ def getCameraModel(image_path):
 
 iphone_model = ''
 
+try:
+    while True:
 
-while True:
+        if input("Manually enter iPhone Model? [Y/N] ") in ['Y', 'y']:
+            iphone_model = input("Enter Iphone Model ('na' for no model): ")
 
-    if input("Manually enter iPhone Model? [Y/N] ") in ['Y', 'y']:
-        iphone_model = input("Enter Iphone Model ('na' for no model): ")
-
-        if iphone_model in ['na', "NA", 'Na']:
-            iphone_model = None
-        break
-    else:
-        image_name = input("Enter Image name to extract meta data: ")
-        iphone_model = getCameraModel(image_name)
-
-        if iphone_model is None:
-            cont = input("No iPhone Model found in Image: Continue with no model? [Y/N]")
-            if cont in ['Y', "y"]:
-                break
-        else:
-            print(f"Model: {iphone_model} found!")
+            if iphone_model in ['na', "NA", 'Na']:
+                iphone_model = None
             break
+        else:
+            image_name = input("Enter Image name to extract meta data: ")
+            iphone_model = getCameraModel(image_name)
 
+            if iphone_model is None:
+                cont = input("No iPhone Model found in Image: Continue with no model? [Y/N]")
+                if cont in ['Y', "y"]:
+                    break
+            else:
+                print(f"Model: {iphone_model} found!")
+                break
 
-for filename in os.listdir(dir_from):
-    if "." in filename and filename.split(".")[-1] == "JPG":
+    for filename in os.listdir(dir_from):
+        if "." in filename and filename.split(".")[-1] == "JPG":
 
-        photo_path = os.path.join(dir_from, filename)
+            photo_path = os.path.join(dir_from, filename)
 
-        model = getCameraModel(photo_path)
+            model = getCameraModel(photo_path)
 
-        if model == iphone_model:
+            if model == iphone_model:
 
-            photo_to = os.path.join(dir_to, filename)
+                photo_to = os.path.join(dir_to, filename)
 
-            shutil.copy2(photo_path, photo_to)
+                shutil.copy2(photo_path, photo_to)
 
-            print(f"Copied {filename} from {dir_from} to {dir_to}")
+                print(f"Copied {filename} from {dir_from} to {dir_to}")
+
+except Exception as e:
+    print(f"Error Occurred! {e}")
+    exit()
 
 print("All done :) bye.")
